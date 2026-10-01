@@ -1,0 +1,275 @@
+/* ============================================================
+   Frota — a seção mais visual da página
+   ============================================================ */
+
+.fleet {
+  background: linear-gradient(180deg, #ffffff 0%, var(--fog) 10%, var(--fog) 100%);
+}
+
+.fleet__head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 32px;
+  margin-bottom: clamp(40px, 5vw, 64px);
+}
+
+.fleet__head-aside {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.fleet__count {
+  display: flex;
+  flex-direction: column;
+  padding-right: 22px;
+  border-right: 1px solid var(--line);
+}
+
+.fleet__count strong {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: var(--fw-semibold);
+  line-height: 1.25;
+  color: var(--navy);
+}
+
+.fleet__count span {
+  margin-top: 6px;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  color: var(--ink-mute);
+  max-width: 26ch;
+}
+
+/* --- Grid 3 × 3 ------------------------------------------------------- */
+
+.fleet__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(20px, 2.4vw, 30px);
+}
+
+.fleet__grid > li {
+  display: flex;
+}
+
+/* --- Card ------------------------------------------------------------- */
+
+.fleet-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-lg);
+  background: var(--white);
+  overflow: hidden;
+  text-align: left;
+  box-shadow: var(--shadow-xs);
+  transition: transform var(--dur-sm) var(--ease-out), box-shadow var(--dur-sm) var(--ease),
+    border-color var(--dur-sm) var(--ease);
+}
+
+.fleet-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(31, 42, 102, 0.28);
+  box-shadow: var(--shadow-md);
+}
+
+/* Fio laranja da identidade que cresce no hover. */
+.fleet-card::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  height: 3px;
+  background: linear-gradient(90deg, var(--amber), var(--amber-bright));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-sm) var(--ease-out);
+}
+
+.fleet-card:hover::after,
+.fleet-card:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.fleet-card__media {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--graphite-night);
+}
+
+.fleet-card__media .media {
+  transition: transform var(--dur-lg) var(--ease-out);
+}
+
+.fleet-card:hover .fleet-card__media .media {
+  transform: scale(1.06);
+}
+
+.fleet-card__shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(16, 18, 30, 0) 42%, rgba(16, 18, 30, 0.6) 100%);
+  opacity: 0.75;
+  transition: opacity var(--dur-sm) var(--ease);
+}
+
+.fleet-card:hover .fleet-card__shade {
+  opacity: 0.95;
+}
+
+.fleet-card__cat {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+  padding: 6px 13px;
+  border-radius: var(--r-pill);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(6px);
+  font-size: 0.68rem;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+.fleet-card__expand {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(16, 18, 30, 0.48);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: var(--white);
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity var(--dur-sm) var(--ease), transform var(--dur-sm) var(--ease-out),
+    background-color var(--dur-xs) var(--ease);
+}
+
+.fleet-card:hover .fleet-card__expand,
+.fleet-card:focus-visible .fleet-card__expand {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fleet-card:hover .fleet-card__expand {
+  background: var(--amber);
+  border-color: var(--amber);
+}
+
+.fleet-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 22px 24px 26px;
+}
+
+.fleet-card__index {
+  font-family: var(--font-display);
+  font-size: 0.76rem;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.14em;
+  color: var(--amber);
+}
+
+.fleet-card__text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fleet-card__name {
+  font-family: var(--font-display);
+  font-size: 1.16rem;
+  font-weight: var(--fw-semibold);
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  transition: color var(--dur-xs) var(--ease);
+}
+
+.fleet-card:hover .fleet-card__name {
+  color: var(--navy);
+}
+
+.fleet-card__tagline {
+  font-size: 0.88rem;
+  color: var(--ink-mute);
+  line-height: 1.55;
+}
+
+.fleet-card__more {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+  font-size: 0.84rem;
+  font-weight: var(--fw-semibold);
+  color: var(--navy);
+  transition: gap var(--dur-xs) var(--ease), color var(--dur-xs) var(--ease);
+}
+
+.fleet-card:hover .fleet-card__more {
+  gap: 13px;
+  color: var(--amber-deep);
+}
+
+/* --- Responsivo ------------------------------------------------------- */
+
+@media (max-width: 980px) {
+  .fleet__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .fleet__head {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+  }
+}
+
+@media (max-width: 620px) {
+  .fleet__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .fleet__head-aside {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .fleet__count {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 12px;
+    padding-right: 0;
+    border-right: 0;
+  }
+
+  .fleet-card__media {
+    aspect-ratio: 16 / 11;
+  }
+
+  .fleet-card__expand {
+    opacity: 1;
+    transform: none;
+  }
+}

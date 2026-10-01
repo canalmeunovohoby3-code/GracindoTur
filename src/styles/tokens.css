@@ -1,0 +1,129 @@
+/* ============================================================
+   GRACINDO TUR — Design tokens
+   Identidade:
+     grafite  #363435  base escura / texto forte
+     azul     #1F2A66  cor institucional principal
+     laranja  #DC6C16  acentos, CTAs e interação (uso controlado)
+     verde    #275928  detalhe pontual
+
+   Regra de direção de arte: branco domina o respiro, o grafite
+   sustenta o texto, o azul carrega a instituição e o laranja é
+   reservado a ação. O verde aparece só como toque de apoio.
+   ============================================================ */
+
+:root {
+  /* --- Marca (valores originais — não alterar) --- */
+  --brand-graphite: #363435;
+  --brand-navy: #1f2a66;
+  --brand-amber: #dc6c16;
+  --brand-green: #275928;
+
+  /* --- Azul institucional (derivados) --- */
+  --navy: var(--brand-navy);
+  --navy-deep: #151d4a;
+  --navy-night: #101638;
+  --navy-bright: #2c3a86;
+  --navy-soft: #5561a0;
+  --navy-tint: #eaedf8;
+  --navy-veil: rgba(31, 42, 102, 0.1);
+
+  /* --- Grafite (derivados) --- */
+  --graphite: var(--brand-graphite);
+  --graphite-deep: #232223;
+  --graphite-night: #191819;
+  --graphite-soft: #5b595b;
+  --graphite-mute: #837f82;
+
+  /* --- Laranja (derivados) --- */
+  --amber: var(--brand-amber);
+  --amber-bright: #f0812f;
+  --amber-deep: #b85510;
+  --amber-tint: #fdf2e8;
+
+  /* --- Verde (derivados) --- */
+  --green: var(--brand-green);
+  --green-deep: #1c421d;
+  --green-tint: #edf4ed;
+
+  /* --- Neutros frios, limpos --- */
+  --white: #ffffff;
+  --fog: #f7f8fa;
+  --mist: #eef0f4;
+  --steel: #dfe2e9;
+
+  /* --- Texto sobre claro --- */
+  --ink: #2c2b2d;
+  --ink-soft: #4d4b4e;
+  --ink-mute: #7a777b;
+
+  /* --- Texto sobre escuro --- */
+  --on-dark: #ffffff;
+  --on-dark-soft: rgba(255, 255, 255, 0.78);
+  --on-dark-mute: rgba(255, 255, 255, 0.58);
+
+  /* --- Linhas --- */
+  --line: rgba(54, 52, 53, 0.14);
+  --line-soft: rgba(54, 52, 53, 0.08);
+  --line-strong: rgba(54, 52, 53, 0.26);
+  --line-dark: rgba(255, 255, 255, 0.16);
+  --line-dark-soft: rgba(255, 255, 255, 0.09);
+
+  /* --- Tipografia ---
+     Sora (display): geométrica contemporânea, com presença e caráter.
+     Inter (texto): neutra, altíssima legibilidade em qualquer tamanho.
+     Nada de Arial, nada arredondado demais, nada futurista. */
+
+  --font-display: 'Sora', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  --fs-hero: clamp(2.5rem, 5vw, 4.4rem);
+  --fs-h2: clamp(1.9rem, 3.2vw, 2.9rem);
+  --fs-h3: clamp(1.24rem, 1.7vw, 1.55rem);
+  --fs-h4: clamp(1.05rem, 1.25vw, 1.2rem);
+  --fs-lead: clamp(1.04rem, 1.15vw, 1.2rem);
+  --fs-body: 1rem;
+  --fs-small: 0.9rem;
+  --fs-label: 0.72rem;
+
+  --track-label: 0.2em;
+  --track-tight: -0.02em;
+  --track-display: -0.03em;
+
+  /* --- Layout --- */
+  --container: 1240px;
+  --container-wide: 1440px;
+  --gutter: clamp(20px, 4.5vw, 56px);
+  --section-y: clamp(72px, 8.5vw, 140px);
+  --nav-h: 96px;
+
+  /* --- Raios (sóbrios, corporativos) --- */
+  --r-xs: 4px;
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 20px;
+  --r-xl: 28px;
+  --r-pill: 999px;
+
+  /* --- Sombras discretas, sempre em grafite/azul --- */
+  --shadow-xs: 0 1px 2px rgba(20, 22, 40, 0.06);
+  --shadow-sm: 0 2px 8px rgba(20, 22, 40, 0.06), 0 16px 36px rgba(20, 22, 40, 0.05);
+  --shadow-md: 0 24px 60px rgba(20, 22, 40, 0.12);
+  --shadow-lg: 0 44px 100px rgba(20, 22, 40, 0.2);
+  --shadow-amber: 0 14px 34px rgba(220, 108, 22, 0.28);
+
+  /* --- Movimento --- */
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-out: cubic-bezier(0.16, 0.84, 0.44, 1);
+  --ease-soft: cubic-bezier(0.4, 0.14, 0.3, 1);
+
+  --dur-xs: 200ms;
+  --dur-sm: 400ms;
+  --dur-md: 660ms;
+  --dur-lg: 900ms;
+}

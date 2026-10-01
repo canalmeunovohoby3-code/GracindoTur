@@ -1,0 +1,177 @@
+.about {
+  background: var(--white);
+}
+
+.about__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  gap: clamp(36px, 6vw, 96px);
+  align-items: start;
+}
+
+.about__lead {
+  margin-top: 26px;
+  font-size: var(--fs-lead);
+  color: var(--ink-soft);
+  max-width: 56ch;
+}
+
+.about__paragraph {
+  margin-top: 18px;
+  color: var(--ink-mute);
+  max-width: 60ch;
+}
+
+.about__pillars {
+  list-style: none;
+  margin: 40px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px 28px;
+}
+
+.about__pillars li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.about__pillar-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: var(--r-md);
+  background: var(--navy-tint);
+  color: var(--navy);
+}
+
+.about__pillar-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.about__pillar-text strong {
+  font-size: 0.96rem;
+  font-weight: var(--fw-semibold);
+  color: var(--ink);
+}
+
+.about__pillar-text small {
+  font-size: 0.85rem;
+  color: var(--ink-mute);
+  line-height: 1.5;
+}
+
+.about__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 40px;
+  font-weight: var(--fw-semibold);
+  color: var(--navy);
+  transition: gap var(--dur-xs) var(--ease), color var(--dur-xs) var(--ease);
+}
+
+.about__link:hover {
+  gap: 16px;
+  color: var(--navy-bright);
+}
+
+/* --- Visual ----------------------------------------------------------- */
+
+.about__visual {
+  position: relative;
+}
+
+.about__year {
+  position: absolute;
+  top: -18px;
+  left: -18px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 20px 24px;
+  border-radius: var(--r-md);
+  background: var(--navy);
+  color: var(--white);
+  box-shadow: var(--shadow-md);
+}
+
+.about__year-number {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-weight: var(--fw-semibold);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.about__year-caption {
+  max-width: 18ch;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.about__media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.about__badge {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  border-radius: var(--r-pill);
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(8px);
+  font-size: 0.82rem;
+  font-weight: var(--fw-medium);
+  color: var(--ink);
+  box-shadow: var(--shadow-sm);
+}
+
+.about__badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+}
+
+@media (max-width: 960px) {
+  .about__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .about__visual {
+    max-width: 520px;
+  }
+
+  .about__media {
+    aspect-ratio: 16 / 11;
+  }
+}
+
+@media (max-width: 560px) {
+  .about__pillars {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .about__year {
+    top: -14px;
+    left: -10px;
+    padding: 16px 18px;
+  }
+}

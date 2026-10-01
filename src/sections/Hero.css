@@ -1,0 +1,491 @@
+/* ============================================================
+   Hero — primeira impressão cinematográfica
+   ============================================================ */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding-top: clamp(178px, 20vh, 244px);
+  padding-bottom: clamp(72px, 10vh, 130px);
+  overflow: hidden;
+  color: var(--on-dark);
+}
+
+/* --- Fundo ------------------------------------------------------------ */
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(120% 100% at 12% 8%, #232a52 0%, rgba(31, 42, 102, 0) 58%),
+    linear-gradient(150deg, #12172f 0%, #1a1f36 46%, #24272e 100%);
+  overflow: hidden;
+}
+
+.hero__glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+}
+
+.hero__glow--navy {
+  top: -14%;
+  left: -8%;
+  width: 46vw;
+  height: 46vw;
+  background: rgba(31, 42, 102, 0.55);
+}
+
+.hero__glow--amber {
+  right: -10%;
+  bottom: -22%;
+  width: 38vw;
+  height: 38vw;
+  background: rgba(220, 108, 22, 0.2);
+}
+
+.hero__grid {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.9;
+}
+
+/* A foto é o fundo da dobra inteira. Fica com folga nas laterais e no
+   topo/base para o parallax nunca revelar borda, e o scrim por cima
+   abre a leitura do texto. */
+.hero__media {
+  position: absolute;
+  inset: -3% 0;
+  pointer-events: none;
+  transform: translate3d(0, var(--parallax-shift, 0), 0) scale(1.08);
+  will-change: transform;
+}
+
+.hero__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 62% 52%;
+  filter: brightness(0.5) saturate(0.72) contrast(1.06);
+}
+
+.hero__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+      100deg,
+      rgba(12, 15, 32, 0.95) 0%,
+      rgba(12, 15, 32, 0.84) 36%,
+      rgba(12, 15, 32, 0.52) 64%,
+      rgba(12, 15, 32, 0.68) 100%
+    ),
+    linear-gradient(0deg, rgba(12, 15, 32, 0.82) 0%, rgba(12, 15, 32, 0) 46%);
+}
+
+/* --- Conteúdo --------------------------------------------------------- */
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(340px, 430px);
+  align-items: center;
+  gap: clamp(32px, 5vw, 72px);
+}
+
+.hero__content {
+  max-width: 660px;
+}
+
+.hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 18px;
+  border: 1px solid var(--line-dark);
+  border-radius: var(--r-pill);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  font-size: 0.76rem;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--on-dark-soft);
+}
+
+.hero__eyebrow-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--amber);
+  box-shadow: 0 0 0 4px rgba(220, 108, 22, 0.22);
+}
+
+.hero__title {
+  margin-top: 28px;
+  font-size: var(--fs-hero);
+  font-weight: var(--fw-semibold);
+  line-height: 1.05;
+  color: var(--on-dark);
+}
+
+.hero__line {
+  display: block;
+  text-wrap: balance;
+}
+
+/* A segunda linha é um tom acima do branco puro e fecha no laranja da marca. */
+.hero__line--second {
+  color: #dde3f4;
+}
+
+/* Varredura contínua: um feixe quente atravessa cada palavra, criando uma
+   onda que percorre o título sem deslocar nada. */
+.hero__word-inner {
+  background-image: linear-gradient(
+    100deg,
+    #ffffff 0%,
+    #ffffff 32%,
+    #ffcf95 45%,
+    #fff3e4 50%,
+    #ffcf95 55%,
+    #ffffff 68%,
+    #ffffff 100%
+  );
+  background-size: 300% 100%;
+  background-position: 170% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: hero-word-in 820ms var(--ease-out) both,
+    hero-sheen 6.8s var(--ease) infinite;
+  animation-delay: var(--d, 0ms), var(--d, 0ms);
+}
+
+/* A palavra de destaque mantém o laranja da marca e ganha um brilho próprio. */
+.hero__word--accent {
+  animation: accent-glow 4.5s ease-in-out infinite;
+}
+
+.hero__word--accent .hero__word-inner {
+  background-image: linear-gradient(
+    100deg,
+    #dc6c16 0%,
+    #dc6c16 34%,
+    #ffd9a8 46%,
+    #fff0dc 50%,
+    #ffd9a8 54%,
+    #dc6c16 66%,
+    #dc6c16 100%
+  );
+  color: transparent;
+}
+
+.hero__lead {
+  margin-top: 26px;
+  max-width: 54ch;
+  font-size: var(--fs-lead);
+  color: var(--on-dark-soft);
+}
+
+.hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 38px;
+}
+
+.hero__trust {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 22px;
+  margin: 40px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.82rem;
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--on-dark-mute);
+}
+
+.hero__trust li {
+  position: relative;
+  padding-right: 22px;
+}
+
+.hero__trust li::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--amber);
+  transform: translateY(-50%);
+}
+
+.hero__trust li:last-child {
+  padding-right: 0;
+}
+
+.hero__trust li:last-child::after {
+  display: none;
+}
+
+/* --- Painel lateral de soluções -------------------------------------- */
+
+/* Card de vidro no espírito do Aero: preenchimento translúcido com um
+   degrau de brilho no topo, desfoque forte do que passa por trás, fio de
+   luz na borda superior e um reflexo diagonal atravessando o vidro. */
+.hero__aside {
+  position: relative;
+  width: 100%;
+  padding: 36px 34px 32px;
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  border-radius: var(--r-lg);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.15) 0%,
+      rgba(255, 255, 255, 0.05) 44%,
+      rgba(255, 255, 255, 0.02) 45%,
+      rgba(255, 255, 255, 0.08) 100%
+    ),
+    rgba(15, 21, 43, 0.56);
+  -webkit-backdrop-filter: blur(22px) saturate(150%);
+  backdrop-filter: blur(22px) saturate(150%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 28px 60px rgba(4, 8, 22, 0.55);
+}
+
+.hero__aside::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    118deg,
+    rgba(255, 255, 255, 0.18) 0%,
+    rgba(255, 255, 255, 0.04) 34%,
+    rgba(255, 255, 255, 0) 52%
+  );
+  pointer-events: none;
+}
+
+.hero__aside > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Cometa de luz contornando o card: um gradiente cônico girando dentro de
+   um anel recortado por máscara. O ângulo é registrado via @property para
+   poder ser interpolado pelo navegador. */
+@property --hero-card-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.hero__aside::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+  padding: 2.5px;
+  background: conic-gradient(
+    from var(--hero-card-angle),
+    rgba(255, 255, 255, 0.05) 0deg,
+    rgba(255, 150, 60, 0.24) 148deg,
+    rgba(255, 172, 92, 0.62) 264deg,
+    rgba(255, 216, 172, 0.96) 314deg,
+    #ffffff 332deg,
+    rgba(255, 216, 172, 0.96) 350deg,
+    rgba(255, 255, 255, 0.05) 360deg
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  /* O brilho acompanha o cometa: forte onde ele passa, quase nulo no resto. */
+  filter: drop-shadow(0 0 11px rgba(255, 168, 86, 0.8));
+  animation: hero-card-trace 3s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes hero-card-trace {
+  to {
+    --hero-card-angle: 360deg;
+  }
+}
+
+.hero__aside-title {
+  font-size: var(--fs-label);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
+  color: var(--on-dark-mute);
+}
+
+.hero__solutions {
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero__solutions li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.hero__solution-index {
+  font-family: var(--font-display);
+  font-size: 0.86rem;
+  font-weight: var(--fw-semibold);
+  color: var(--amber);
+}
+
+.hero__solution-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero__solution-text strong {
+  font-size: 1rem;
+  font-weight: var(--fw-medium);
+  color: var(--on-dark);
+}
+
+.hero__solution-text small {
+  font-size: 0.83rem;
+  color: var(--on-dark-mute);
+}
+
+.hero__aside-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 22px;
+  font-size: 0.92rem;
+  font-weight: var(--fw-semibold);
+  color: var(--amber);
+  transition: gap var(--dur-xs) var(--ease);
+}
+
+.hero__aside-link:hover {
+  gap: 12px;
+}
+
+/* --- Indicador de scroll ---------------------------------------------- */
+
+.hero__scroll {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(20px, 3vh, 34px);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  transform: translateX(-50%);
+  transition: color var(--dur-xs) var(--ease), opacity var(--dur-xs) var(--ease);
+}
+
+.hero__scroll-label {
+  font-size: 0.66rem;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--on-dark-mute);
+  transition: color var(--dur-xs) var(--ease);
+}
+
+.hero__scroll:hover .hero__scroll-label {
+  color: var(--amber);
+}
+
+/* --- Responsivo ------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+  .hero__inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hero__aside {
+    max-width: 480px;
+  }
+
+  .hero__photo {
+    object-position: 68% 50%;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero__scroll {
+    display: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero {
+    min-height: auto;
+    padding-top: clamp(150px, 26vh, 196px);
+  }
+
+  /* No mobile a foto continua sendo o fundo, mas entra mais escura e sob
+     um scrim mais fechado: o texto é curto e precisa mandar na leitura. */
+  .hero__media {
+    inset: -2% 0;
+  }
+
+  .hero__photo {
+    object-position: 72% 40%;
+    filter: brightness(0.32) saturate(0.62) contrast(1.04);
+  }
+
+  .hero__scrim {
+    background: linear-gradient(
+      180deg,
+      rgba(12, 15, 32, 0.92) 0%,
+      rgba(12, 15, 32, 0.84) 34%,
+      rgba(12, 15, 32, 0.97) 74%,
+      rgba(12, 15, 32, 0.99) 100%
+    );
+  }
+
+  .hero__title {
+    font-size: clamp(2.1rem, 9vw, 3rem);
+  }
+
+  .hero__cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero__cta .btn {
+    width: 100%;
+  }
+
+  .hero__aside {
+    max-width: none;
+  }
+}
