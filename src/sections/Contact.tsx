@@ -68,7 +68,9 @@ export function Contact() {
               </span>
               <span className="contact__channel-text">
                 <small>Localização</small>
-                <span>{LOCATION.label}</span>
+                <a href={MAP_LINK_URL} target="_blank" rel="noopener noreferrer">
+                  {LOCATION.address}
+                </a>
               </span>
             </li>
           </ul>

@@ -39,23 +39,26 @@ export const WHATSAPP_DISPLAY = '(65) 98102-9000'
 export const INSTAGRAM_HANDLE = '@gracindotur'
 export const INSTAGRAM_URL = 'https://www.instagram.com/gracindotur'
 
+/** Endereço completo da empresa, usado no mapa e no rodapé. */
+const ADDRESS = 'R. Domingos Jorge Velho, 10 - Jardim Universitário, Cuiabá - MT, 78075-140'
+
 export const LOCATION = {
   city: 'Cuiabá',
   state: 'MT',
   country: 'Brasil',
   label: 'Cuiabá — MT',
-  /** Coordenadas centrais de Cuiabá, usadas no mapa. */
-  lat: -15.601411,
-  lng: -56.097892,
+  address: ADDRESS,
 }
 
 /** Endereço do mapa incorporado — funciona sem chave de API. */
-export const MAP_EMBED_URL =
-  'https://www.google.com/maps?q=Cuiab%C3%A1%2C%20Mato%20Grosso%2C%20Brasil&z=12&hl=pt-BR&output=embed'
+export const MAP_EMBED_URL = `https://www.google.com/maps?q=${encodeURIComponent(
+  ADDRESS,
+)}&z=16&hl=pt-BR&output=embed`
 
 /** Link para abrir o mapa no Google Maps. */
-export const MAP_LINK_URL =
-  'https://www.google.com/maps/search/?api=1&query=Cuiab%C3%A1%2C+Mato+Grosso%2C+Brasil'
+export const MAP_LINK_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+  ADDRESS,
+)}`
 
 /* ============================================================
    Mensagens contextualizadas de WhatsApp

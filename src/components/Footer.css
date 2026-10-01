@@ -84,6 +84,15 @@
   flex-shrink: 0;
 }
 
+.footer__contact .footer__address {
+  align-items: flex-start;
+  line-height: 1.5;
+}
+
+.footer__address svg {
+  margin-top: 2px;
+}
+
 .footer__ext {
   opacity: 0.5;
 }

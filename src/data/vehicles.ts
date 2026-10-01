@@ -339,11 +339,11 @@ Com este veículo atendemos:
       { label: 'Disponibilidade', value: 'Sob consulta' },
     ],
     images: [
+      { src: '/Ônibus executivo para 46 passageiros/5.png', alt: 'Ônibus Executivo 46 lugares — vista completa' },
       { src: '/Ônibus executivo para 46 passageiros/1.png', alt: 'Ônibus Executivo 46 lugares — foto 1' },
       { src: '/Ônibus executivo para 46 passageiros/2.png', alt: 'Ônibus Executivo 46 lugares — foto 2' },
       { src: '/Ônibus executivo para 46 passageiros/3.png', alt: 'Ônibus Executivo 46 lugares — foto 3' },
       { src: '/Ônibus executivo para 46 passageiros/4.png', alt: 'Ônibus Executivo 46 lugares — foto 4' },
-      { src: '/Ônibus executivo para 46 passageiros/5.png', alt: 'Ônibus Executivo 46 lugares — foto 5' },
       { src: '/Ônibus executivo para 46 passageiros/6.png', alt: 'Ônibus Executivo 46 lugares — foto 6' },
       { src: '/Ônibus executivo para 46 passageiros/7.png', alt: 'Ônibus Executivo 46 lugares — foto 7' },
       { src: '/Ônibus executivo para 46 passageiros/8.png', alt: 'Ônibus Executivo 46 lugares — foto 8' },

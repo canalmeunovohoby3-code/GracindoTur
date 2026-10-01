@@ -3,6 +3,7 @@ import {
   INSTAGRAM_HANDLE,
   INSTAGRAM_URL,
   LOCATION,
+  MAP_LINK_URL,
   NAV_ITEMS,
   WHATSAPP_DISPLAY,
   WHATSAPP_MESSAGES,
@@ -60,10 +61,16 @@ export function Footer() {
               </a>
             </li>
             <li>
-              <span>
+              <a
+                className="footer__address"
+                href={MAP_LINK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <IconMapPin size={17} />
-                {LOCATION.label}
-              </span>
+                {LOCATION.address}
+                <IconArrowUpRight size={15} className="footer__ext" />
+              </a>
             </li>
           </ul>
         </div>
