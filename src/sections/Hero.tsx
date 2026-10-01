@@ -12,7 +12,7 @@ import './Hero.css'
 
 const HERO_SOLUTIONS = [
   { label: 'Veículos executivos', detail: 'Sedans e SUVs' },
-  { label: 'Vans executivas de luxo', detail: 'Grupos e deslocamentos' },
+  { label: 'Vans executivas luxo alto padrão', detail: 'Grupos e deslocamentos' },
   { label: 'Ônibus executivos', detail: 'Transporte de grupos' },
 ]
 

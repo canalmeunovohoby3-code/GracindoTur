@@ -24,7 +24,7 @@ export const SERVICES: Service[] = [
   {
     id: 'vans',
     eyebrow: 'Grupos',
-    title: 'Vans executivas de luxo',
+    title: 'Vans executivas luxo alto padrão',
     description:
       'Conforto e praticidade para grupos e deslocamentos especiais.',
     kind: 'van-luxo',

@@ -1,7 +1,7 @@
 import type { ImageAsset, Vehicle } from '../types'
 
 /* ============================================================
-   FROTA — 9 veículos independentes
+   FROTA — 10 veículos independentes
    ------------------------------------------------------------
    Cada item deste arquivo é UM veículo. Tudo que aparece no card e no
    modal (capa, galeria, descrição e informações) vem exclusivamente do
@@ -312,6 +312,44 @@ Com este veículo atendemos:
       { src: '/Ônibus Marcopolo G7 Executivo para até 42 passageiros/8.png', alt: 'Marcopolo G7 Executivo — foto 8' },
       { src: '/Ônibus Marcopolo G7 Executivo para até 42 passageiros/9.png', alt: 'Marcopolo G7 Executivo — foto 9' },
       { src: '/Ônibus Marcopolo G7 Executivo para até 42 passageiros/10.png', alt: 'Marcopolo G7 Executivo — foto 10' },
+    ],
+  },
+  {
+    id: 'veiculo-10',
+    name: 'Ônibus Executivo 46 lugares',
+    category: 'Ônibus Executivo',
+    kind: 'onibus',
+    tagline: 'Ônibus executivo para até 46 passageiros.',
+    description: `🚍 Ônibus executivo para até 46 passageiros
+💺 Espaço interno amplo e confortável para grupos
+🧳 Porta-malas para a bagagem do grupo
+☑️ Empresa e veículos legalizados na AGER e ANTT
+📍 Fretamento por todo o Brasil
+
+Com este veículo atendemos:
+💑 Casamentos
+🎉 Eventos, excursões e formaturas
+🏢 Empresas e equipes de trabalho
+⛪ Igrejas e grupos organizados
+📸 Passeios e viagens por todo o Brasil
+📝 Peça já seu orçamento sem compromisso.`,
+    specs: [
+      { label: 'Capacidade', value: 'Até 46 passageiros' },
+      { label: 'Atendimento', value: 'Cuiabá — MT' },
+      { label: 'Disponibilidade', value: 'Sob consulta' },
+    ],
+    images: [
+      { src: '/Ônibus executivo para 46 passageiros/1.png', alt: 'Ônibus Executivo 46 lugares — foto 1' },
+      { src: '/Ônibus executivo para 46 passageiros/2.png', alt: 'Ônibus Executivo 46 lugares — foto 2' },
+      { src: '/Ônibus executivo para 46 passageiros/3.png', alt: 'Ônibus Executivo 46 lugares — foto 3' },
+      { src: '/Ônibus executivo para 46 passageiros/4.png', alt: 'Ônibus Executivo 46 lugares — foto 4' },
+      { src: '/Ônibus executivo para 46 passageiros/5.png', alt: 'Ônibus Executivo 46 lugares — foto 5' },
+      { src: '/Ônibus executivo para 46 passageiros/6.png', alt: 'Ônibus Executivo 46 lugares — foto 6' },
+      { src: '/Ônibus executivo para 46 passageiros/7.png', alt: 'Ônibus Executivo 46 lugares — foto 7' },
+      { src: '/Ônibus executivo para 46 passageiros/8.png', alt: 'Ônibus Executivo 46 lugares — foto 8' },
+      { src: '/Ônibus executivo para 46 passageiros/9.png', alt: 'Ônibus Executivo 46 lugares — foto 9' },
+      { src: '/Ônibus executivo para 46 passageiros/10.png', alt: 'Ônibus Executivo 46 lugares — foto 10' },
+      { src: '/Ônibus executivo para 46 passageiros/11.png', alt: 'Ônibus Executivo 46 lugares — foto 11' },
     ],
   },
 ]
