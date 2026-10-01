@@ -1,0 +1,371 @@
+/* ============================================================
+   Depoimentos — avaliações reais do Google
+   ============================================================ */
+
+.testimonials {
+  background: var(--fog);
+}
+
+.testimonials__head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: clamp(24px, 5vw, 64px);
+  margin-bottom: clamp(40px, 5vw, 64px);
+}
+
+/* --- Selo de nota do Google ------------------------------------------ */
+
+.testimonials__rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--dur-xs) var(--ease), box-shadow var(--dur-sm) var(--ease),
+    transform var(--dur-sm) var(--ease-out);
+}
+
+.testimonials__rating:hover {
+  transform: translateY(-2px);
+  border-color: rgba(31, 42, 102, 0.28);
+  box-shadow: var(--shadow-md);
+}
+
+.testimonials__rating-score {
+  font-family: var(--font-display);
+  font-size: 2.1rem;
+  font-weight: var(--fw-semibold);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--navy);
+}
+
+.testimonials__rating-body {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-right: 4px;
+}
+
+.testimonials__rating-text {
+  font-size: 0.82rem;
+  color: var(--ink-mute);
+  white-space: nowrap;
+}
+
+.testimonials__rating-icon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  color: var(--ink-soft);
+  transition: background-color var(--dur-xs) var(--ease), color var(--dur-xs) var(--ease),
+    border-color var(--dur-xs) var(--ease), transform var(--dur-sm) var(--ease-out);
+}
+
+.testimonials__rating:hover .testimonials__rating-icon {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: var(--white);
+  transform: translate(3px, -3px);
+}
+
+/* --- Estrelas --------------------------------------------------------- */
+
+.testimonial__stars {
+  display: inline-flex;
+  gap: 3px;
+  color: var(--amber);
+}
+
+.testimonial__stars svg {
+  color: rgba(220, 108, 22, 0.32);
+}
+
+.testimonial__stars svg.is-on {
+  color: var(--amber);
+}
+
+/* --- Grade de depoimentos -------------------------------------------- */
+
+.testimonials__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(20px, 2.4vw, 30px);
+}
+
+.testimonials__grid > li {
+  display: flex;
+}
+
+.testimonial {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  padding: clamp(26px, 2.6vw, 34px);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-lg);
+  background: var(--white);
+  box-shadow: var(--shadow-xs);
+  overflow: hidden;
+  transition: transform var(--dur-sm) var(--ease-out), border-color var(--dur-sm) var(--ease),
+    box-shadow var(--dur-sm) var(--ease);
+}
+
+/* Fio laranja que cresce no hover, no mesmo espírito dos cards da frota. */
+.testimonial::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--amber), var(--amber-bright));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-sm) var(--ease-out);
+}
+
+.testimonial:hover {
+  transform: translateY(-6px);
+  border-color: rgba(31, 42, 102, 0.24);
+  box-shadow: var(--shadow-md);
+}
+
+.testimonial:hover::after {
+  transform: scaleX(1);
+}
+
+.testimonial__mark {
+  position: absolute;
+  top: 6px;
+  right: 22px;
+  font-family: var(--font-display);
+  font-size: 5rem;
+  font-weight: var(--fw-bold);
+  line-height: 1;
+  color: rgba(31, 42, 102, 0.08);
+  pointer-events: none;
+}
+
+.testimonial__quote {
+  font-size: 0.95rem;
+  line-height: 1.66;
+  color: var(--ink-soft);
+}
+
+.testimonial__foot {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.testimonial__avatar {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--navy-tint);
+  color: var(--navy);
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.02em;
+}
+
+.testimonial__who {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.testimonial__who strong {
+  font-size: 0.95rem;
+  font-weight: var(--fw-semibold);
+  color: var(--ink);
+}
+
+.testimonial__who small {
+  font-size: 0.76rem;
+  color: var(--ink-mute);
+}
+
+.testimonial__source {
+  margin-left: auto;
+  color: var(--ink-mute);
+  opacity: 0.6;
+  transition: opacity var(--dur-xs) var(--ease), color var(--dur-xs) var(--ease);
+}
+
+.testimonial:hover .testimonial__source {
+  opacity: 1;
+  color: var(--navy);
+}
+
+/* --- Depoimento em destaque (card escuro largo) ----------------------- */
+
+.testimonial.testimonial--featured {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.75fr) minmax(280px, 1fr);
+  grid-template-rows: auto 1fr;
+  column-gap: clamp(24px, 4vw, 62px);
+  row-gap: 14px;
+  align-items: center;
+  padding: clamp(30px, 3.4vw, 50px);
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--navy-night) 0%, var(--navy-deep) 52%, #1b2456 100%);
+  color: var(--on-dark);
+}
+
+.testimonial--featured .testimonial__mark {
+  top: 2px;
+  right: 28px;
+  font-size: 6.5rem;
+  color: rgba(255, 255, 255, 0.1);
+}
+
+.testimonial--featured .testimonial__stars {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.testimonial--featured .testimonial__quote {
+  grid-column: 1;
+  grid-row: 2;
+  max-width: 72ch;
+  font-size: 1.04rem;
+  line-height: 1.72;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.testimonial--featured .testimonial__foot {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+  margin-top: 0;
+  padding-top: 0;
+  padding-left: clamp(24px, 3vw, 48px);
+  border-top: 0;
+  border-left: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.testimonial--featured .testimonial__avatar {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--white);
+}
+
+.testimonial--featured .testimonial__who strong {
+  color: var(--white);
+}
+
+.testimonial--featured .testimonial__who small {
+  color: var(--on-dark-mute);
+}
+
+.testimonial--featured .testimonial__source {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.testimonial--featured:hover .testimonial__source {
+  color: var(--white);
+}
+
+/* --- Card final: convite para ver todas no Google --------------------- */
+
+.testimonial--cta {
+  justify-content: center;
+  gap: 14px;
+  background: linear-gradient(160deg, var(--navy-tint) 0%, var(--white) 72%);
+  border-color: var(--line);
+}
+
+.testimonial__cta-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: var(--fs-label);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+
+.testimonial__cta-title {
+  font-size: var(--fs-h4);
+  color: var(--ink);
+}
+
+.testimonial__cta-text {
+  font-size: 0.92rem;
+  color: var(--ink-mute);
+}
+
+.testimonial__cta-btn {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+/* --- Responsivo ------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+  .testimonials__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 820px) {
+  .testimonial.testimonial--featured {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto;
+  }
+
+  .testimonial--featured .testimonial__stars,
+  .testimonial--featured .testimonial__quote,
+  .testimonial--featured .testimonial__foot {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .testimonial--featured .testimonial__foot {
+    padding-left: 0;
+    padding-top: 18px;
+    border-left: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+  }
+}
+
+@media (max-width: 780px) {
+  .testimonials__head {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+  }
+}
+
+@media (max-width: 620px) {
+  .testimonials__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .testimonials__rating {
+    width: 100%;
+  }
+}

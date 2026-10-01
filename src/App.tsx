@@ -7,6 +7,7 @@ import { Fleet } from './sections/Fleet'
 import { Services } from './sections/Services'
 import { Differentials } from './sections/Differentials'
 import { Trust } from './sections/Trust'
+import { Testimonials } from './sections/Testimonials'
 import { Contact } from './sections/Contact'
 import { useParallax } from './hooks/useParallax'
 import { useSmoothScroll } from './hooks/useSmoothScroll'
@@ -30,6 +31,7 @@ export function App() {
         <Services />
         <Differentials />
         <Trust />
+        <Testimonials />
         <Contact />
       </main>
 

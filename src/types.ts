@@ -69,6 +69,19 @@ export type Service = {
   whatsapp: string
 }
 
+/**
+ * Depoimento real de cliente, coletado do perfil da empresa no Google.
+ */
+export type Testimonial = {
+  id: string
+  quote: string
+  author: string
+  /** Contexto exibido abaixo do nome, ex.: "Avaliação no Google · set. 2025". */
+  meta: string
+  /** Nota em estrelas, de 1 a 5. */
+  rating: number
+}
+
 export type Differential = {
   id: string
   title: string

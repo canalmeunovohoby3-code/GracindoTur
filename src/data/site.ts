@@ -88,6 +88,7 @@ export const NAV_ITEMS: NavItem[] = [
   { label: 'Frota', id: 'frota' },
   { label: 'Serviços', id: 'servicos' },
   { label: 'Diferenciais', id: 'diferenciais' },
+  { label: 'Depoimentos', id: 'depoimentos' },
   { label: 'Contato', id: 'contato' },
 ]
 
